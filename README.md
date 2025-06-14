@@ -288,22 +288,5 @@ VITE_API_URL=https://api.exemplo.com
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 🙏 Agradecimentos
 
-- [dnd-kit](https://dndkit.com/) - Biblioteca excepcional para drag and drop
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitário
-- [shadcn/ui](https://ui.shadcn.com/) - Componentes UI modernos
-- [Lucide](https://lucide.dev/) - Ícones SVG bonitos
-
-## 📞 Suporte
-
-Se você encontrar algum problema ou tiver dúvidas:
-
-1. Verifique a [documentação](#-como-usar)
-2. Procure em [Issues existentes](../../issues)
-3. Crie uma [Nova Issue](../../issues/new)
-
----
-
-**Desenvolvido com ❤️ usando React + TypeScript + Tailwind CSS**
 
