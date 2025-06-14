@@ -5,7 +5,7 @@
  * geração de IDs únicos e outras operações comuns.
  */
 
-import { Card, Column, Board } from '../types';
+import { Card, Column, Board, Task } from '../types';
 
 /**
  * Gera um ID único usando timestamp e número aleatório
@@ -16,18 +16,38 @@ export const generateId = (): string => {
 };
 
 /**
+ * Cria uma nova tarefa com valores padrão
+ * @param description - Descrição da tarefa
+ * @param completed - Status de conclusão da tarefa
+ * @returns Task - Nova tarefa criada
+ */
+export const createTask = (description: string, completed: boolean = false): Task => {
+  return {
+    id: generateId(),
+    description,
+    completed,
+  };
+};
+
+/**
  * Cria um novo card com valores padrão
  * @param title - Título do card
  * @param description - Descrição opcional do card
+ * @param startDate - Data de início opcional do card
+ * @param endDate - Data de fim opcional do card
+ * @param tasks - Lista de tarefas opcional do card
  * @returns Card - Novo card criado
  */
-export const createCard = (title: string, description?: string): Card => {
+export const createCard = (title: string, description?: string, startDate?: Date, endDate?: Date, tasks?: Task[]): Card => {
   return {
     id: generateId(),
     title,
     description,
     createdAt: new Date(),
     updatedAt: new Date(),
+    startDate,
+    endDate,
+    tasks: tasks || [],
   };
 };
 
@@ -187,20 +207,94 @@ export const reorderColumns = (
  * Dados de exemplo para demonstração
  */
 export const createSampleBoard = (): Board => {
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+
   const todoCards = [
-    createCard('Implementar autenticação', 'Adicionar sistema de login e registro'),
-    createCard('Criar testes unitários', 'Escrever testes para os componentes principais'),
-    createCard('Documentar API', 'Criar documentação completa da API REST'),
+    createCard(
+      'Implementar autenticação',
+      'Adicionar sistema de login e registro',
+      today,
+      tomorrow,
+      [
+        createTask('Definir escopo de autenticação'),
+        createTask('Configurar Firebase Auth'),
+        createTask('Criar tela de login/registro'),
+      ]
+    ),
+    createCard(
+      'Criar testes unitários',
+      'Escrever testes para os componentes principais',
+      today,
+      tomorrow,
+      [
+        createTask('Identificar componentes críticos'),
+        createTask('Escrever testes para Card.tsx'),
+        createTask('Escrever testes para Column.tsx'),
+      ]
+    ),
+    createCard(
+      'Documentar API',
+      'Criar documentação completa da API REST',
+      today,
+      tomorrow,
+      [
+        createTask('Listar endpoints'),
+        createTask('Descrever payloads'),
+        createTask('Gerar documentação com Swagger'),
+      ]
+    ),
   ];
 
   const inProgressCards = [
-    createCard('Desenvolver dashboard', 'Interface principal do usuário'),
-    createCard('Integrar pagamentos', 'Implementar gateway de pagamento'),
+    createCard(
+      'Desenvolver dashboard',
+      'Interface principal do usuário',
+      today,
+      tomorrow,
+      [
+        createTask('Desenhar layout'),
+        createTask('Implementar componentes de UI'),
+        createTask('Integrar com dados de exemplo'),
+      ]
+    ),
+    createCard(
+      'Integrar pagamentos',
+      'Implementar gateway de pagamento',
+      today,
+      tomorrow,
+      [
+        createTask('Escolher provedor de pagamento'),
+        createTask('Configurar chaves de API'),
+        createTask('Testar fluxo de pagamento'),
+      ]
+    ),
   ];
 
   const doneCards = [
-    createCard('Setup do projeto', 'Configuração inicial do ambiente'),
-    createCard('Design system', 'Criação dos componentes base'),
+    createCard(
+      'Setup do projeto',
+      'Configuração inicial do ambiente',
+      new Date('2025-06-10'),
+      new Date('2025-06-10'),
+      [
+        createTask('Inicializar projeto Vite', true),
+        createTask('Instalar dependências', true),
+        createTask('Configurar Tailwind CSS', true),
+      ]
+    ),
+    createCard(
+      'Design system',
+      'Criação dos componentes base',
+      new Date('2025-06-05'),
+      new Date('2025-06-08'),
+      [
+        createTask('Definir paleta de cores', true),
+        createTask('Criar tipografia', true),
+        createTask('Desenvolver componentes básicos', true),
+      ]
+    ),
   ];
 
   const columns = [
@@ -211,4 +305,5 @@ export const createSampleBoard = (): Board => {
 
   return createBoard('Projeto Kanban Board', columns);
 };
+
 
