@@ -2,7 +2,6 @@
 
 Um Kanban Board moderno e interativo construído com React, TypeScript, Tailwind CSS e dnd-kit. Este projeto oferece uma experiência completa de gerenciamento de tarefas com funcionalidade de arrastar e soltar, interface responsiva e código bem estruturado.
 
-![Kanban Board Preview](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Kanban+Board+Preview)
 
 ## ✨ Funcionalidades
 
@@ -181,112 +180,8 @@ Hook personalizado que encapsula toda a lógica de drag and drop.
 - **PostCSS**: Processamento de CSS
 - **Autoprefixer**: Prefixos CSS automáticos
 
-## 🎨 Personalização
-
-### Temas
-O projeto suporta modo escuro/claro através das classes do Tailwind:
-```css
-/* Modo claro (padrão) */
-.bg-white .text-gray-900
-
-/* Modo escuro */
-.dark .bg-gray-800 .dark:text-gray-100
-```
-
-### Cores
-Personalize as cores editando o arquivo `src/App.css`:
-```css
-:root {
-  --primary: oklch(0.205 0 0);
-  --secondary: oklch(0.97 0 0);
-  /* ... outras variáveis */
-}
-```
-
-### Componentes
-Todos os componentes são modulares e podem ser facilmente customizados:
-- Modifique estilos em cada componente
-- Adicione novas props conforme necessário
-- Estenda funcionalidades através dos hooks
-
-## 🔄 Fluxo de Dados
-
-```mermaid
-graph TD
-    A[App.tsx] --> B[Board.tsx]
-    B --> C[Column.tsx]
-    C --> D[Card.tsx]
-    B --> E[useDragAndDrop.ts]
-    E --> F[utils/helpers.ts]
-    F --> G[types/index.ts]
-```
-
-1. **App.tsx**: Mantém o estado global do board
-2. **Board.tsx**: Coordena operações e renderiza colunas
-3. **Column.tsx**: Gerencia cards individuais
-4. **Card.tsx**: Componente leaf para exibição
-5. **useDragAndDrop.ts**: Lógica de drag and drop
-6. **helpers.ts**: Funções utilitárias para manipulação de dados
-
-## 🧪 Testes
-
-### Testes Manuais Realizados
-- ✅ Criação e edição de cards
-- ✅ Criação e edição de colunas  
-- ✅ Drag and drop de cards entre colunas
-- ✅ Reordenação de cards na mesma coluna
-- ✅ Reordenação de colunas
-- ✅ Responsividade em diferentes tamanhos de tela
-- ✅ Funcionalidade de teclado (Enter/Escape)
-
-### Executar Testes
-```bash
-# Testes unitários (quando implementados)
-pnpm run test
-
-# Testes E2E (quando implementados)  
-pnpm run test:e2e
-```
-
-## 🚀 Deploy
-
-### Build de Produção
-```bash
-pnpm run build
-```
-
-### Deploy Estático
-O projeto pode ser deployado em qualquer serviço de hosting estático:
-- **Vercel**: `vercel --prod`
-- **Netlify**: Arraste a pasta `dist` para o Netlify
-- **GitHub Pages**: Configure GitHub Actions
-
-### Variáveis de Ambiente
-Crie um arquivo `.env` para configurações específicas:
-```env
-VITE_APP_TITLE=Meu Kanban Board
-VITE_API_URL=https://api.exemplo.com
-```
-
-## 🤝 Contribuição
-
-### Como Contribuir
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-### Padrões de Código
-- Use TypeScript para type safety
-- Siga as convenções do ESLint
-- Adicione comentários JSDoc para funções públicas
-- Mantenha componentes pequenos e focados
-- Use hooks personalizados para lógica complexa
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-
+## ✏️ Autores
+- Gabriel Francisco
+- Julia Iervese
+- Yago Bastos
 
